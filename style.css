@@ -1,0 +1,498 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    /* padding: 25px; */
+    background-color: white;
+    color: black;
+    font-size: 25px;
+}
+
+.dark-mode {
+    background-color: black;
+    color: white;
+}
+
+:root {
+    --black: #333;
+    --white: #fff;
+}
+
+.dark {
+    --black: #fff;
+    --white: #333;
+}
+
+header {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 40px 100px;
+    z-index: 10000;
+}
+
+header .logo {
+    position: relative;
+    display: inline-flex;
+    color: var(--black);
+    text-decoration: none;
+    font-size: 2em;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.righSide {
+    display: flex;
+}
+
+.btns {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.btns ion-icon {
+    font-size: 1.5em;
+    color: var(--black);
+}
+
+.btns.menuToggle ion-icon {
+    font-size: 3em;
+}
+
+.btns ion-icon:nth-child(2) {
+    display: none;
+}
+
+.btns.active ion-icon:nth-child(2) {
+    display: block;
+}
+
+.btns.active ion-icon:nth-child(1) {
+    display: none;
+}
+
+.main {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    user-select: none;
+    mix-blend-mode: screen;
+}
+
+.dark .mask {
+    filter: invert(1);
+    mix-blend-mode: multiply;
+}
+
+.main h2 {
+    position: relative;
+    z-index: 3;
+    width: -100%;
+    font-size: 10vw;
+    color: rgb(255, 255, 255);
+    text-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+}
+
+.navigation {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--white);
+    z-index: 4;
+    transition: 0.5s;
+}
+
+.navigation.active {
+    left: 0;
+}
+
+.navigation li {
+    list-style: none;
+}
+
+.navigation li a {
+    display: inline-flex;
+    margin: 5px 0;
+    font-size: 1.35em;
+    text-decoration: none;
+    color: var(--black);
+    padding: 5px 20px;
+    border-radius: 40px;
+}
+
+.navigation li a:hover {
+    background: var(--black);
+    color: var(--white);
+
+}
+
+.copyrightText {
+    position: absolute;
+    left: 100px;
+    bottom: 40px;
+    z-index: 4;
+    font-weight: 500;
+    font-size: 1.2em;
+    color: var(--black);
+}
+
+.rightBtn {
+    position: absolute;
+    color: var(--black);
+    font-size: 3em;
+    right: 30px;
+    bottom: 50%;
+    z-index: 4;
+}
+
+.videoFlorest {
+    display: none;
+}
+
+.leftBtn {
+    position: absolute;
+    color: var(--black);
+    font-size: 3em;
+    left: 30px;
+    bottom: 50%;
+    z-index: 4;
+}
+
+.sci {
+    position: absolute;
+    right: 100px;
+    bottom: 40px;
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+}
+
+.sci li {
+    list-style: none;
+}
+
+.sci li a {
+    text-decoration: none;
+    color: var(--black);
+    font-size: 1.75em;
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 20px;
+    }
+
+    .copyrightText {
+        left: 20px;
+        bottom: 30px;
+    }
+
+    .sci {
+        right: 20px;
+        bottom: 20px;
+    }
+
+    .rightBtn {
+        font-size: 2em;
+        right: 0;
+    }
+
+    .leftBtn {
+        font-size: 2em;
+        left: 0px;
+    }
+
+
+
+    h1 {
+        text-align: center;
+        margin-bottom: 0;
+        margin-top: 60px;
+    }
+    
+    #lean_overlay {
+        position: fixed;
+        z-index: 100;
+        top: 0px;
+        left: 0px;
+        height: 100%;
+        width: 100%;
+        background: #000;
+        display: none;
+    }
+    
+    .popupContainer {
+        position: absolute;
+        width: 330px;
+        height: auto;
+        left: 45%;
+        top: 60px;
+        background: #FFF;
+    }
+    
+    /* #modal_trigger {
+            margin: 40px auto;
+            width: 200px;
+            display: block;
+            border: 1px solid #DDD;
+            border-radius: 4px;
+    } */
+    
+    /* .btn {
+            padding: 10px 20px;
+            background: #F4F4F2;
+    } */
+    
+    .btn_red {
+        background: #ED6347;
+        color: #FFF;
+    }
+    
+    /* .btn:hover {
+            background: #E4E4E2;
+    } */
+    
+    .btn_red:hover {
+        background: #C12B05;
+    }
+    
+    /* a.btn { */
+    /* color: rgb(74, 236, 10); */
+    /* text-align: center; */
+    /* text-decoration: none; */
+    /* width: 100px; */
+    /* } */
+    
+    a.btn_red {
+        color: #FFF;
+    }
+    
+    .one_half {
+        width: 48%;
+        display: block;
+        float: left;
+        background: #ED6347;
+    }
+    
+    .one_half.last {
+        width: 47%;
+        margin-left: 5%;
+        background: #3B5998;
+    }
+    
+    /* Popup Styles*/
+    
+    .popupHeader {
+        font-size: 16px;
+        text-transform: uppercase;
+    }
+    
+    .popupHeader {
+        background: #F4F4F2;
+        position: relative;
+        padding: 10px 20px;
+        border-bottom: 1px solid #DDD;
+        font-weight: bold;
+    }
+    
+    .popupHeader .modal_close {
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 10px 15px;
+        background: #E4E4E2;
+        cursor: pointer;
+        color: #aaa;
+        font-size: 16px;
+    }
+    
+    .popupBody {
+        padding: 20px;
+    }
+    
+    /* Social Login Form */
+    
+    .social_login {}
+    
+    .social_login .social_box {
+        display: block;
+        clear: both;
+        padding: 10px;
+        margin-bottom: 10px;
+        background: #f2f4f3;
+        overflow: hidden;
+    }
+    
+    .social_login .icon {
+        display: block;
+        /* width: 10px; */
+        padding: 5px 25px;
+        margin-right: 10px;
+        float: left;
+        color: rgb(255, 255, 255);
+        font-size: 16px;
+        text-align: center;
+    }
+    
+    .social_login .fb .icon {
+        background: #3B5998;
+    }
+    
+    .social_login .google .icon {
+        background: #DD4B39;
+    }
+    
+    .social_login .icon_title {
+        display: block;
+        padding: 5px 0;
+        float: left;
+        font-weight: bold;
+        font-size: 16px;
+        color: #777;
+    }
+    
+    .social_login .social_box:hover {
+        background: #E4E4E2;
+    }
+    
+    .centeredText {
+        text-align: center;
+        margin: 20px 0;
+        clear: both;
+        overflow: hidden;
+        text-transform: uppercase;
+    }
+    
+    .action_btns {
+        clear: both;
+        overflow: hidden;
+    }
+    
+    .action_btns a {
+        display: block;
+    }
+    
+    /* User Login Form */
+    
+    .user_login {
+        display: none;
+    }
+    
+    .user_login label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    
+    .user_login input[type="text"],
+    .user_login input[type="email"],
+    .user_login input[type="password"] {
+        display: block;
+        width: 90%;
+        padding: 10px;
+        border: 1px solid #DDD;
+        color: #666;
+    }
+    
+    .user_login input[type="checkbox"] {
+        float: left;
+        margin-right: 5px;
+    }
+    
+    .user_login input[type="checkbox"]+label {
+        float: left;
+    }
+    
+    .user_login .checkbox {
+        margin-bottom: 10px;
+        clear: both;
+        overflow: hidden;
+    }
+    
+    .forgot_password {
+        display: block;
+        /* margin: 20px 0 10px; */
+        clear: both;
+        overflow: hidden;
+        text-decoration: none;
+        color: #ED6347;
+    }
+    
+    /* User Register Form */
+    
+    .user_register {
+        display: none;
+    }
+    
+    .user_register label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    
+    .user_register input[type="text"],
+    .user_register input[type="email"],
+    .user_register input[type="password"] {
+        display: block;
+        width: 90%;
+        padding: 10px;
+        border: 1px solid #DDD;
+        color: #666;
+    }
+    
+    .user_register input[type="checkbox"] {
+        float: left;
+        margin-right: 5px;
+    }
+    
+    .user_register input[type="checkbox"]+label {
+        float: left;
+    }
+    
+    .user_register .checkbox {
+        margin-bottom: 10px;
+        clear: both;
+        overflow: hidden;
+    }
+
+}
